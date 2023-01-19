@@ -14,6 +14,6 @@ Based on ZeroPointSecurity's RTOVMSetup (https://github.com/ZeroPointSecurity/RT
 ### 2. Install Boxstarter Package
 ```
 $Cred = Get-Credential $env:USERNAME
-Install-BoxstarterPackage -PackageName https://raw.githubusercontent.com/ZeroPointSecurity/RTOVMSetup/master/win10.choco -Credential $Cred
+Install-BoxstarterPackage -PackageName https://raw.githubusercontent.com/sclow/RTVM/main/win10.choco -Credential $Cred
 ```
 
