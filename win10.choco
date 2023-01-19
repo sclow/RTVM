@@ -71,15 +71,15 @@ Install-Module GPRegistryPolicy -Force
 
 # Networking
 ## VMware
-netsh interface ip set address "Ethernet1" static 192.168.152.101 255.255.255.0 192.168.152.100
+#netsh interface ip set address "Ethernet1" static 192.168.152.101 255.255.255.0 192.168.152.100
 
 ## VBox
-netsh interface ip set address "Ethernet 2" static 192.168.152.101 255.255.255.0 192.168.152.100
+#netsh interface ip set address "Ethernet 2" static 192.168.152.101 255.255.255.0 192.168.152.100
 
-route add -p 10.8.0.0 mask 255.255.255.0 192.168.152.100
-route add -p 10.9.0.0 mask 255.255.255.0 192.168.152.100
-route add -p 10.10.110.0 mask 255.255.255.0 192.168.152.100
-Add-Content C:\Windows\System32\drivers\etc\hosts "192.168.152.100 kali"
+#route add -p 10.8.0.0 mask 255.255.255.0 192.168.152.100
+#route add -p 10.9.0.0 mask 255.255.255.0 192.168.152.100
+#route add -p 10.10.110.0 mask 255.255.255.0 192.168.152.100
+#Add-Content C:\Windows\System32\drivers\etc\hosts "192.168.152.100 kali"
 
 # UI
 Import-Module "$env:ChocolateyInstall\helpers\chocolateyInstaller.psm1" -Force
@@ -88,8 +88,8 @@ Install-ChocolateyShortcut -shortcutFilePath "C:\Users\Public\Desktop\tools.lnk"
 Install-ChocolateyShortcut -shortcutFilePath "C:\Users\Public\Desktop\Neo4j.lnk" -targetPath "C:\tools\Neo4j\bin\neo4j.bat" -arguments "console" -runAsAdmin
 
 New-Item -Path C:\ -Name BGInfo -ItemType Directory -ErrorAction SilentlyContinue
-Invoke-WebRequest -Uri 'https://github.com/ZeroPointSecurity/RTOVMSetup/raw/master/wallpaper.jpg' -OutFile "C:\BGInfo\wallpaper.jpg"
-Invoke-WebRequest -Uri 'https://github.com/ZeroPointSecurity/RTOVMSetup/raw/master/bginfo.bgi' -OutFile "C:\BGInfo\bginfo.bgi"
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/sclow/RTVM/raw/master/wallpaper.jpg' -OutFile "C:\BGInfo\wallpaper.jpg"
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/sclow/RTVM/raw/master/bginfo.bgi' -OutFile "C:\BGInfo\bginfo.bgi"
 New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\ -Name BGInfo -Value "C:\tools\sysinternals\Bginfo64.exe /accepteula /iC:\BGInfo\bginfo.bgi /timer:0"
 
 # Misc
