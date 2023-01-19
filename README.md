@@ -7,7 +7,10 @@ Based on ZeroPointSecurity's RTOVMSetup (https://github.com/ZeroPointSecurity/RT
 ## Windows
 
 ### 1. Install Boxstarter
+Launch an administrative cmd prompt:
+
 ```
+powershell -exec bypass
 . { Invoke-WebRequest -useb https://boxstarter.org/bootstrapper.ps1 } | iex; Get-Boxstarter -Force
 ```
 
