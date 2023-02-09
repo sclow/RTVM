@@ -99,3 +99,10 @@ New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\ -Nam
 $DesktopPath = [Environment]::GetFolderPath("Desktop")
 Remove-Item -Path "C:\Users\Public\Desktop\Boxstarter Shell.lnk"
 Remove-Item -Path C:\Temp\ -Recurse -Force
+
+# Windows config
+Enable-RemoteDesktop
+Disable-BingSearch
+Disable-GameBarTips
+# Disable weather widget
+New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Feeds -Name ShellFeedsTaskbarViewMode -Value 2
