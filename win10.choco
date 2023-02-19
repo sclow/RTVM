@@ -86,13 +86,30 @@ choco install putty --Force
 choco install sysinternals --params "/InstallDir:C:\tools\sysinternals" --Force
 choco install dotpeek --pre --Force
 ##choco install vscode
-choco install visualstudio2022community --package-parameters "--allWorkloads --includeRecommended --includeOptional --passive --locale en-US"
 
 # Dotnet build environments
 choco install netfx-4.5.2-devpack --Force
 choco install netfx-4.6.2-devpack --Force
 choco install netfx-4.7.2-devpack --Force
 
+#choco install visualstudio2022community --package-parameters "--allWorkloads --includeRecommended --includeOptional --passive --locale en-US"
+choco install visualstudio2022community
+choco install visualstudio2022-workload-azure
+choco install visualstudio2022-workload-data
+choco install visualstudio2022-workload-datascience
+choco install visualstudio2022-workload-manageddesktop
+choco install visualstudio2022-workload-managedgame
+choco install visualstudio2022-workload-nativecrossplat
+choco install visualstudio2022-workload-nativedesktop
+choco install visualstudio2022-workload-nativegame
+choco install visualstudio2022-workload-nativemobile
+choco install visualstudio2022-workload-netcrossplat
+choco install visualstudio2022-workload-netweb
+choco install visualstudio2022-workload-node
+choco install visualstudio2022-workload-office
+choco install visualstudio2022-workload-python
+choco install visualstudio2022-workload-universal
+choco install visualstudio2022-workload-visualstudioextension
 
 
 # GitHub
