@@ -43,6 +43,8 @@ if (($exists -eq $null) -or ($exists.Length -eq 0)) {
 } else {
     New-ItemProperty -Path $regkey -Name $name -Value 2 -Force
 }
+Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager -Name SystemPaneSuggestionsEnabled -Type DWord -Value 0
+
 
 # Remove Pre-Installed Apps
 Get-AppxPackage *getstarted* | Remove-AppxPackage
@@ -57,7 +59,8 @@ Get-AppxPackage *bing* | Remove-AppxPackage
 Get-AppxPackage *messaging* | Remove-AppxPackage
 Get-AppxPackage *Microsoft.people* | Remove-AppxPackage
 Get-AppxPackage *ZuneMusic* | Remove-AppxPackage
-Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager -Name SystemPaneSuggestionsEnabled -Type DWord -Value 0
+Get-AppxPackage Microsoft.BingWeather | Remove-AppxPackage
+
 
 # Default All Printers to A4
 get-printer | %{ set-printconfiguration -printerobject $_ -Papersize "a4" }
