@@ -64,6 +64,7 @@ choco install heidisql --version=10.2.0.559900 --Force
 choco install openjdk11 --Force
 choco install putty --Force
 choco install sysinternals --params "/InstallDir:C:\tools\sysinternals" --Force
+choco install dotpeek --pre --Force
 ##choco install vscode
 choco install visualstudio2022community --package-parameters "--allWorkloads --includeRecommended --includeOptional --passive --locale en-US" --force
 
@@ -125,3 +126,6 @@ Install-Module GPRegistryPolicy -Force
 #route add -p 10.10.110.0 mask 255.255.255.0 192.168.152.100
 #Add-Content C:\Windows\System32\drivers\etc\hosts "192.168.152.100 kali"
 
+# Default extensions
+Install-ChocolateyFileAssociation ".sln" "$env:programfiles\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.exe"
+Install-ChocolateyFileAssociation ".dll" "$($Boxstarter.programFiles86)\jetbrains\dotpeek\v1.1\Bin\dotpeek32.exe"
