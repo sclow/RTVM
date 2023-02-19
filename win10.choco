@@ -12,6 +12,48 @@ Add-MpPreference -ExclusionPath "C:\tools\"
 Set-MpPreference -MAPSReporting Disabled
 Set-MpPreference -SubmitSamplesConsent NeverSend
 
+# UI
+Import-Module "$env:ChocolateyInstall\helpers\chocolateyInstaller.psm1" -Force
+Set-WindowsExplorerOptions -EnableShowFileExtensions -EnableShowFullPathInTitleBar -EnableExpandToOpenFolder -EnableShowRibbon
+Install-ChocolateyShortcut -shortcutFilePath "C:\Users\Public\Desktop\tools.lnk" -targetPath C:\tools\
+Install-ChocolateyShortcut -shortcutFilePath "C:\Users\Public\Desktop\Neo4j.lnk" -targetPath "C:\tools\Neo4j\bin\neo4j.bat" -arguments "console" -runAsAdmin
+
+New-Item -Path C:\ -Name BGInfo -ItemType Directory -ErrorAction SilentlyContinue
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/sclow/RTVM/master/wallpaper.jpg' -OutFile "C:\BGInfo\wallpaper.jpg"
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/sclow/RTVM/master/wallpaper2.jpg' -OutFile "C:\BGInfo\wallpaper2.jpg"
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/sclow/RTVM/master/wallpaper3.jpg' -OutFile "C:\BGInfo\wallpaper3.jpg"
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/sclow/RTVM/master/bginfo.bgi' -OutFile "C:\BGInfo\bginfo.bgi"
+New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\ -Name BGInfo -Value "C:\tools\sysinternals\Bginfo64.exe /accepteula /iC:\BGInfo\bginfo.bgi /timer:0" -Force
+
+# Misc
+$DesktopPath = [Environment]::GetFolderPath("Desktop")
+Remove-Item -Path "C:\Users\Public\Desktop\Boxstarter Shell.lnk"
+Remove-Item -Path C:\Temp\ -Recurse -Force
+
+# Windows config
+Enable-RemoteDesktop
+Disable-BingSearch
+Disable-GameBarTips
+# Disable weather widget
+New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Feeds -Name ShellFeedsTaskbarViewMode -Value 2 -Force
+
+# Remove Pre-Installed Apps
+Get-AppxPackage *getstarted* | Remove-AppxPackage
+Get-AppxPackage *officehub* | Remove-AppxPackage
+Get-AppxPackage *3dbuilder* | Remove-AppxPackage
+Get-AppxPackage *windowscommunicationsapps* | Remove-AppxPackage
+Get-AppxPackage *getstarted* | Remove-AppxPackage
+Get-AppxPackage *skypeapp* | Remove-AppxPackage
+Get-AppxPackage *solitairecollection* | Remove-AppxPackage
+Get-AppxPackage *zunevideo* | Remove-AppxPackage
+Get-AppxPackage *bing* | Remove-AppxPackage
+Get-AppxPackage *messaging* | Remove-AppxPackage
+Get-AppxPackage *Microsoft.people* | Remove-AppxPackage
+Get-AppxPackage *ZuneMusic* | Remove-AppxPackage
+
+# Default All Printers to A4
+get-printer | %{ set-printconfiguration -printerobject $_ -Papersize "a4" }
+
 # Packages
 choco feature enable -n allowGlobalConfirmation
 Install-PackageProvider -Name NuGet -ForceBootstrap
@@ -83,44 +125,3 @@ Install-Module GPRegistryPolicy -Force
 #route add -p 10.10.110.0 mask 255.255.255.0 192.168.152.100
 #Add-Content C:\Windows\System32\drivers\etc\hosts "192.168.152.100 kali"
 
-# UI
-Import-Module "$env:ChocolateyInstall\helpers\chocolateyInstaller.psm1" -Force
-Set-WindowsExplorerOptions -EnableShowFileExtensions -EnableShowFullPathInTitleBar -EnableExpandToOpenFolder -EnableShowRibbon
-Install-ChocolateyShortcut -shortcutFilePath "C:\Users\Public\Desktop\tools.lnk" -targetPath C:\tools\
-Install-ChocolateyShortcut -shortcutFilePath "C:\Users\Public\Desktop\Neo4j.lnk" -targetPath "C:\tools\Neo4j\bin\neo4j.bat" -arguments "console" -runAsAdmin
-
-New-Item -Path C:\ -Name BGInfo -ItemType Directory -ErrorAction SilentlyContinue
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/sclow/RTVM/master/wallpaper.jpg' -OutFile "C:\BGInfo\wallpaper.jpg"
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/sclow/RTVM/master/wallpaper2.jpg' -OutFile "C:\BGInfo\wallpaper2.jpg"
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/sclow/RTVM/master/wallpaper3.jpg' -OutFile "C:\BGInfo\wallpaper3.jpg"
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/sclow/RTVM/master/bginfo.bgi' -OutFile "C:\BGInfo\bginfo.bgi"
-New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\ -Name BGInfo -Value "C:\tools\sysinternals\Bginfo64.exe /accepteula /iC:\BGInfo\bginfo.bgi /timer:0" -Force
-
-# Misc
-$DesktopPath = [Environment]::GetFolderPath("Desktop")
-Remove-Item -Path "C:\Users\Public\Desktop\Boxstarter Shell.lnk"
-Remove-Item -Path C:\Temp\ -Recurse -Force
-
-# Windows config
-Enable-RemoteDesktop
-Disable-BingSearch
-Disable-GameBarTips
-# Disable weather widget
-New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Feeds -Name ShellFeedsTaskbarViewMode -Value 2 -Force
-
-# Remove Pre-Installed Apps
-Get-AppxPackage *getstarted* | Remove-AppxPackage
-Get-AppxPackage *officehub* | Remove-AppxPackage
-Get-AppxPackage *3dbuilder* | Remove-AppxPackage
-Get-AppxPackage *windowscommunicationsapps* | Remove-AppxPackage
-Get-AppxPackage *getstarted* | Remove-AppxPackage
-Get-AppxPackage *skypeapp* | Remove-AppxPackage
-Get-AppxPackage *solitairecollection* | Remove-AppxPackage
-Get-AppxPackage *zunevideo* | Remove-AppxPackage
-Get-AppxPackage *bing* | Remove-AppxPackage
-Get-AppxPackage *messaging* | Remove-AppxPackage
-Get-AppxPackage *Microsoft.people* | Remove-AppxPackage
-Get-AppxPackage *ZuneMusic* | Remove-AppxPackage
-
-# Default All Printers to A4
-get-printer | %{ set-printconfiguration -printerobject $_ -Papersize "a4" }
