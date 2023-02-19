@@ -57,6 +57,7 @@ Get-AppxPackage *bing* | Remove-AppxPackage
 Get-AppxPackage *messaging* | Remove-AppxPackage
 Get-AppxPackage *Microsoft.people* | Remove-AppxPackage
 Get-AppxPackage *ZuneMusic* | Remove-AppxPackage
+Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager -Name SystemPaneSuggestionsEnabled -Type DWord -Value 0
 
 # Default All Printers to A4
 get-printer | %{ set-printconfiguration -printerobject $_ -Papersize "a4" }
