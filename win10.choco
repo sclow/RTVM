@@ -36,6 +36,7 @@ Disable-BingSearch
 Disable-GameBarTips
 # Disable weather widget
 New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Feeds -Name ShellFeedsTaskbarViewMode -Value 2 -Force
+Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Feeds -Name ShellFeedsTaskbarViewMode -Value 2 -Force
 
 # Remove Pre-Installed Apps
 Get-AppxPackage *getstarted* | Remove-AppxPackage
