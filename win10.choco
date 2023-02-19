@@ -86,7 +86,7 @@ choco install putty --Force
 choco install sysinternals --params "/InstallDir:C:\tools\sysinternals" --Force
 choco install dotpeek --pre --Force
 ##choco install vscode
-choco install visualstudio2022community --package-parameters "--allWorkloads --includeRecommended --includeOptional --passive --locale en-US" --force
+choco install visualstudio2022community --package-parameters "--allWorkloads --includeRecommended --includeOptional --passive --locale en-US"
 
 # Dotnet build environments
 choco install netfx-4.5.2-devpack --Force
