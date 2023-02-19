@@ -95,12 +95,13 @@ get-printer | %{ set-printconfiguration -printerobject $_ -Papersize "a4" }
 choco feature enable -n allowGlobalConfirmation
 Install-Package NuGet.CommandLine -Force
 Install-PackageProvider -Name NuGet -ForceBootstrap -Force
-choco install 7zip --Force
-choco install git --Force
+choco install 7zip 
+choco install git 
 ## choco install googlechrome --ignore-checksums
-choco install heidisql --version=10.2.0.559900 --Force
-choco install openjdk11 --Force
-choco install putty --Force
+choco install googlechrome
+choco install heidisql --version=10.2.0.559900 
+choco install openjdk11
+choco install putty 
 choco install sysinternals --params "/InstallDir:C:\tools\sysinternals" --Force
 choco install dotpeek --pre 
 ##choco install vscode
