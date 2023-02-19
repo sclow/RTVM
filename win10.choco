@@ -84,13 +84,13 @@ choco install heidisql --version=10.2.0.559900 --Force
 choco install openjdk11 --Force
 choco install putty --Force
 choco install sysinternals --params "/InstallDir:C:\tools\sysinternals" --Force
-choco install dotpeek --pre --Force
+choco install dotpeek --pre 
 ##choco install vscode
 
 # Dotnet build environments
-choco install netfx-4.5.2-devpack --Force
-choco install netfx-4.6.2-devpack --Force
-choco install netfx-4.7.2-devpack --Force
+choco install netfx-4.5.2-devpack
+choco install netfx-4.6.2-devpack
+choco install netfx-4.7.2-devpack
 
 #choco install visualstudio2022community --package-parameters "--allWorkloads --includeRecommended --includeOptional --passive --locale en-US"
 choco install visualstudio2022community
