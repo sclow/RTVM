@@ -35,8 +35,14 @@ Enable-RemoteDesktop
 Disable-BingSearch
 Disable-GameBarTips
 # Disable weather widget
-New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Feeds -Name ShellFeedsTaskbarViewMode -Value 2 -Force
-Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Feeds -Name ShellFeedsTaskbarViewMode -Value 2 -Force
+$regkey = HKCU:\Software\Microsoft\Windows\CurrentVersion\Feeds
+$name = ShellFeedsTaskbarViewMode
+$exists = Get-ItemProperty $regkey $name -ErrorAction SilentlyContinue
+if (($exists -eq $null) -or ($exists.Length -eq 0)) {
+    Set-ItemProperty -Path $regkey -Name $name -Value 2 -Force
+} else {
+    New-ItemProperty -Path $regkey -Name $name -Value 2 -Force
+}
 
 # Remove Pre-Installed Apps
 Get-AppxPackage *getstarted* | Remove-AppxPackage
