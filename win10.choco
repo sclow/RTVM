@@ -50,6 +50,11 @@ Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search -N
 # To Restore (Enabled):
 # Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search -Name BingSearchEnabled -Type DWord -Value 1
 
+# Change Explorer home screen back to "This PC"
+Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name LaunchTo -Type DWord -Value 1
+# Change it back to "Quick Access" (Windows 10 default)
+# Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name LaunchTo -Type DWord -Value 2
+
 
 # Remove Pre-Installed Apps
 Get-AppxPackage *getstarted* | Remove-AppxPackage
@@ -152,3 +157,9 @@ Install-Module GPRegistryPolicy -Force
 # Default extensions
 Install-ChocolateyFileAssociation ".sln" "$env:programfiles\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.exe"
 Install-ChocolateyFileAssociation ".dll" "$($Boxstarter.programFiles86)\jetbrains\dotpeek\v1.1\Bin\dotpeek32.exe"
+
+
+#--- Restore Temporary Settings ---
+Enable-UAC
+Enable-MicrosoftUpdate
+Install-WindowsUpdate -acceptEula
