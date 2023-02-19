@@ -106,3 +106,20 @@ Disable-BingSearch
 Disable-GameBarTips
 # Disable weather widget
 New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Feeds -Name ShellFeedsTaskbarViewMode -Value 2 -Force
+
+# Remove Pre-Installed Apps
+Get-AppxPackage *getstarted* | Remove-AppxPackage
+Get-AppxPackage *officehub* | Remove-AppxPackage
+Get-AppxPackage *3dbuilder* | Remove-AppxPackage
+Get-AppxPackage *windowscommunicationsapps* | Remove-AppxPackage
+Get-AppxPackage *getstarted* | Remove-AppxPackage
+Get-AppxPackage *skypeapp* | Remove-AppxPackage
+Get-AppxPackage *solitairecollection* | Remove-AppxPackage
+Get-AppxPackage *zunevideo* | Remove-AppxPackage
+Get-AppxPackage *bing* | Remove-AppxPackage
+Get-AppxPackage *messaging* | Remove-AppxPackage
+Get-AppxPackage *Microsoft.people* | Remove-AppxPackage
+Get-AppxPackage *ZuneMusic* | Remove-AppxPackage
+
+# Default All Printers to A4
+get-printer | %{ set-printconfiguration -printerobject $_ -Papersize "a4" }
