@@ -75,6 +75,13 @@ choco install dotpeek --pre --Force
 ##choco install vscode
 choco install visualstudio2022community --package-parameters "--allWorkloads --includeRecommended --includeOptional --passive --locale en-US" --force
 
+# Dotnet build environments
+choco install netfx-4.5.2-devpack --Force
+choco install netfx-4.6.2-devpack --Force
+choco install netfx-4.7.2-devpack --Force
+
+
+
 # GitHub
 Invoke-WebRequest -Uri https://github.com/dnSpy/dnSpy/releases/latest/download/dnSpy-netframework.zip -OutFile "$env:TEMP\dnSpy-netframework.zip"
 Expand-Archive -Path "$env:TEMP\dnSpy-netframework.zip" -DestinationPath C:\tools\dnSpy -Force
