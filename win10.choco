@@ -77,8 +77,8 @@ get-printer | %{ set-printconfiguration -printerobject $_ -Papersize "a4" }
 
 # Packages
 choco feature enable -n allowGlobalConfirmation
-Install-PackageProvider -Name NuGet -ForceBootstrap
-Install-Package NuGet.CommandLine
+Install-Package NuGet.CommandLine -Force
+Install-PackageProvider -Name NuGet -ForceBootstrap -Force
 choco install 7zip --Force
 choco install git --Force
 ## choco install googlechrome --ignore-checksums
@@ -113,7 +113,10 @@ git clone https://github.com/HarmJ0y/DAMP.git C:\tools\DAMP
 git clone https://github.com/hfiref0x/UACME.git C:\tools\UACME
 git clone https://github.com/leechristensen/SpoolSample.git C:\tools\SpoolSample
 git clone https://github.com/NetSPI/PowerUpSQL.git C:\tools\PowerUpSQL
+
 git clone https://github.com/p3nt4/PowerShdll.git C:\tools\PowerShdll
+Start-Process -Wait -NoNewWindow dotnet -ArgumentList restore -WorkingDirectory C:\tools\PowerShdll
+
 git clone https://github.com/PowerShellMafia/PowerSploit.git C:\tools\PowerSploit
 git clone https://github.com/rasta-mouse/MiscTools.git C:\tools\MiscTools
 git clone https://github.com/rasta-mouse/Sherlock.git C:\tools\Sherlock
@@ -162,5 +165,5 @@ Install-ChocolateyFileAssociation ".dll" "$($Boxstarter.programFiles86)\jetbrain
 
 #--- Restore Temporary Settings ---
 #Enable-UAC
-Enable-MicrosoftUpdate
-Install-WindowsUpdate -acceptEula
+#Enable-MicrosoftUpdate
+#sInstall-WindowsUpdate -acceptEula
