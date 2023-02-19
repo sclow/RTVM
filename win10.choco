@@ -57,13 +57,13 @@ get-printer | %{ set-printconfiguration -printerobject $_ -Papersize "a4" }
 # Packages
 choco feature enable -n allowGlobalConfirmation
 Install-PackageProvider -Name NuGet -ForceBootstrap
-choco install 7zip
-choco install git
+choco install 7zip --Force
+choco install git --Force
 ## choco install googlechrome --ignore-checksums
-choco install heidisql --version=10.2.0.559900
-choco install openjdk11
-choco install putty
-choco install sysinternals --params "/InstallDir:C:\tools\sysinternals"
+choco install heidisql --version=10.2.0.559900 --Force
+choco install openjdk11 --Force
+choco install putty --Force
+choco install sysinternals --params "/InstallDir:C:\tools\sysinternals" --Force
 ##choco install vscode
 choco install visualstudio2022community --package-parameters "--allWorkloads --includeRecommended --includeOptional --passive --locale en-US" --force
 
