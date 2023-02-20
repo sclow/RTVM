@@ -245,6 +245,6 @@ Install-ChocolateyFileAssociation ".dll" "$($Boxstarter.programFiles86)\jetbrain
 
 
 #--- Restore Temporary Settings ---
-#Enable-UAC
-#Enable-MicrosoftUpdate
-#sInstall-WindowsUpdate -acceptEula
+Enable-UAC
+Enable-MicrosoftUpdate
+Install-WindowsUpdate -acceptEula
