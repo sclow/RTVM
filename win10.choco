@@ -173,6 +173,21 @@ Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -Argu
 git clone https://github.com/GhostPack/Seatbelt.git C:\tools\Seatbelt
 Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -ArgumentList 'restore -source "https://api.nuget.org/v3/index.json;https://www.myget.org/F/nuget"' -WorkingDirectory C:\tools\Seatbelt
 
+git clone https://github.com/GhostPack/Certify.git C:\tools\Certify
+Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -ArgumentList 'restore -source "https://api.nuget.org/v3/index.json;https://www.myget.org/F/nuget"' -WorkingDirectory C:\tools\Certify
+
+git clone https://github.com/GhostPack/Rubeus.git c:\tools\Rubeus
+Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -ArgumentList 'restore -source "https://api.nuget.org/v3/index.json;https://www.myget.org/F/nuget"' -WorkingDirectory C:\tools\Rubeus
+
+git clone https://github.com/GhostPack/SafetyKatz.git c:\tools\SafetyKatz
+Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -ArgumentList 'restore -source "https://api.nuget.org/v3/index.json;https://www.myget.org/F/nuget"' -WorkingDirectory C:\tools\SafetyKatz
+
+git clone https://github.com/GhostPack/SharpDPAPI.git c:\tools\SharpDPAPI
+Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -ArgumentList 'restore -source "https://api.nuget.org/v3/index.json;https://www.myget.org/F/nuget"' -WorkingDirectory C:\tools\SharpDPAPI
+
+git clone https://github.com/GhostPack/SharpUp.git c:\tools\SharpUp
+Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -ArgumentList 'restore -source "https://api.nuget.org/v3/index.json;https://www.myget.org/F/nuget"' -WorkingDirectory C:\tools\SharpUp
+
 git clone https://github.com/HarmJ0y/DAMP.git C:\tools\DAMP
 Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -ArgumentList 'restore -source "https://api.nuget.org/v3/index.json;https://www.myget.org/F/nuget"' -WorkingDirectory C:\tools\DAMP
 
