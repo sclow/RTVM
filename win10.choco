@@ -4,6 +4,10 @@ New-Item -Path C:\ -Name payloads -ItemType Directory -ErrorAction SilentlyConti
 $env:TEMP = "C:\Temp"
 $env:TMP = "C:\Temp"
 
+# Enable TLS 1.3 Support
+New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.3\Client" -Name "DisabledByDefault" -Type DWord -Value 0
+New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.3\Client" -Name "Enabled" -Type DWord -Value 1
+
 # Defender
 $Downloads = Get-ItemPropertyValue 'HKCU:\software\microsoft\windows\currentversion\explorer\shell folders\' -Name '{374DE290-123F-4565-9164-39C4925E467B}'
 Add-MpPreference -ExclusionPath $Downloads
