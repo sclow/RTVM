@@ -100,6 +100,7 @@ get-printer | %{ set-printconfiguration -printerobject $_ -Papersize "a4" }
 choco feature enable -n allowGlobalConfirmation
 #Install-Package NuGet.CommandLine -Force
 Install-PackageProvider -Name NuGet -ForceBootstrap -Force
+choco install nuget.commandline
 choco install 7zip 
 choco install git 
 ## choco install googlechrome --ignore-checksums
