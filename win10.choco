@@ -111,24 +111,24 @@ choco install sysinternals --params "/InstallDir:C:\tools\sysinternals" --Force
 choco install dotpeek --pre 
 ##choco install vscode
 
-#choco install visualstudio2022community --package-parameters "--allWorkloads --includeRecommended --includeOptional --passive --locale en-US"
-choco install visualstudio2022community --norestart 
-choco install visualstudio2022-workload-azure --norestart --force
-choco install visualstudio2022-workload-data --norestart --force
-choco install visualstudio2022-workload-datascience --norestart --force
-choco install visualstudio2022-workload-manageddesktop --norestart --force
-choco install visualstudio2022-workload-managedgame --norestart --force
-choco install visualstudio2022-workload-nativecrossplat --norestart --force
-choco install visualstudio2022-workload-nativedesktop --norestart --force
-choco install visualstudio2022-workload-nativegame --norestart --force
-choco install visualstudio2022-workload-nativemobile --norestart --force
-choco install visualstudio2022-workload-netcrossplat --norestart --force
-choco install visualstudio2022-workload-netweb --norestart --force
-choco install visualstudio2022-workload-node --norestart --force
-choco install visualstudio2022-workload-office --norestart --force
-choco install visualstudio2022-workload-python --norestart --force
-choco install visualstudio2022-workload-universal --norestart --force
-choco install visualstudio2022-workload-visualstudioextension --norestart --force
+choco install visualstudio2022community --package-parameters "--allWorkloads --includeRecommended --includeOptional --passive --locale en-US"
+#choco install visualstudio2022community --norestart 
+#choco install visualstudio2022-workload-azure --norestart --force
+#choco install visualstudio2022-workload-data --norestart --force
+#choco install visualstudio2022-workload-datascience --norestart --force
+#choco install visualstudio2022-workload-manageddesktop --norestart --force
+#choco install visualstudio2022-workload-managedgame --norestart --force
+#choco install visualstudio2022-workload-nativecrossplat --norestart --force
+#choco install visualstudio2022-workload-nativedesktop --norestart --force
+#choco install visualstudio2022-workload-nativegame --norestart --force
+#choco install visualstudio2022-workload-nativemobile --norestart --force
+#choco install visualstudio2022-workload-netcrossplat --norestart --force
+#choco install visualstudio2022-workload-netweb --norestart --force
+#choco install visualstudio2022-workload-node --norestart --force
+#choco install visualstudio2022-workload-office --norestart --force
+#choco install visualstudio2022-workload-python --norestart --force
+#choco install visualstudio2022-workload-universal --norestart --force
+#choco install visualstudio2022-workload-visualstudioextension --norestart --force
 
 # Dotnet build environments
 choco install netfx-4.5.2-devpack
