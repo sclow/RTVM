@@ -111,7 +111,9 @@ choco install putty
 choco install sysinternals --params "/InstallDir:C:\tools\sysinternals" --Force
 choco install dotpeek --pre --package-parameters "/PerMachine"
 ##choco install vscode
-choco install microsoft-office-deployment --package-parameters "/64"
+
+# Choco office installer currently broken
+# choco install microsoft-office-deployment --package-parameters "/64"
 
 choco install visualstudio2022community --package-parameters "--allWorkloads --includeRecommended --includeOptional --passive --locale en-US"
 #choco install visualstudio2022community --norestart 
