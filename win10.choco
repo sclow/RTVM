@@ -149,6 +149,12 @@ Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -Argu
 
 git clone https://github.com/dafthack/MailSniper.git C:\tools\MailSniper
 
+git clone https://github.com/CCob/SweetPotato.git C:\tools\SweetPotato
+Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -ArgumentList 'restore -source "https://api.nuget.org/v3/index.json;https://www.myget.org/F/nuget"' -WorkingDirectory C:\tools\SweetPotato
+
+git clone https://github.com/antonioCoco/RoguePotato.git C:\tools\RoguePotato
+Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -ArgumentList 'restore -source "https://api.nuget.org/v3/index.json;https://www.myget.org/F/nuget"' -WorkingDirectory C:\tools\RoguePotato
+
 git clone https://github.com/decoder-it/juicy-potato.git C:\tools\juicy-potato
 Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -ArgumentList 'restore -source "https://api.nuget.org/v3/index.json;https://www.myget.org/F/nuget"' -WorkingDirectory C:\tools\juicy-potato
 
