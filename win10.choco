@@ -154,7 +154,7 @@ git clone https://github.com/leechristensen/SpoolSample.git C:\tools\SpoolSample
 git clone https://github.com/NetSPI/PowerUpSQL.git C:\tools\PowerUpSQL
 
 git clone https://github.com/p3nt4/PowerShdll.git C:\tools\PowerShdll
-Start-Process -Wait -NoNewWindow dotnet -ArgumentList restore -WorkingDirectory C:\tools\PowerShdll
+Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -ArgumentList '-source "https://api.nuget.org/v3/index.json;https://www.myget.org/F/nuget"' -WorkingDirectory C:\tools\PowerShdll
 
 git clone https://github.com/PowerShellMafia/PowerSploit.git C:\tools\PowerSploit
 git clone https://github.com/rasta-mouse/MiscTools.git C:\tools\MiscTools
