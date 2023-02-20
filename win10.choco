@@ -110,7 +110,7 @@ choco install dotpeek --pre
 choco install visualstudio2022community --norestart 
 choco install visualstudio2022-workload-azure --norestart 
 choco install visualstudio2022-workload-data --norestart 
-choco install visualstudio2022-workload-datascience --norestart 
+#choco install visualstudio2022-workload-datascience --norestart 
 choco install visualstudio2022-workload-manageddesktop --norestart 
 choco install visualstudio2022-workload-managedgame --norestart 
 choco install visualstudio2022-workload-nativecrossplat --norestart 
