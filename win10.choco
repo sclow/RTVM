@@ -201,7 +201,8 @@ Install-Module GPRegistryPolicy -Force
 #Add-Content C:\Windows\System32\drivers\etc\hosts "192.168.152.100 kali"
 
 # Default extensions
-Install-ChocolateyFileAssociation ".sln" "$env:programfiles\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.exe"
+# Use the UI to choose what associate once loaded
+#Install-ChocolateyFileAssociation ".sln" "$env:programfiles\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.exe"
 Install-ChocolateyFileAssociation ".dll" "$($Boxstarter.programFiles86)\jetbrains\installations\dotpeek231\dotpeek32.exe"
 
 
