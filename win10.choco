@@ -112,23 +112,23 @@ choco install netfx-4.6.2-devpack
 choco install netfx-4.7.2-devpack
 
 #choco install visualstudio2022community --package-parameters "--allWorkloads --includeRecommended --includeOptional --passive --locale en-US"
-choco install visualstudio2022community --Force
-choco install visualstudio2022-workload-azure --Force
-choco install visualstudio2022-workload-data --Force
-choco install visualstudio2022-workload-datascience --Force
-choco install visualstudio2022-workload-manageddesktop --Force
-choco install visualstudio2022-workload-managedgame --Force
-choco install visualstudio2022-workload-nativecrossplat --Force
-choco install visualstudio2022-workload-nativedesktop --Force
-choco install visualstudio2022-workload-nativegame --Force
-choco install visualstudio2022-workload-nativemobile --Force
-choco install visualstudio2022-workload-netcrossplat --Force
-choco install visualstudio2022-workload-netweb --Force
-choco install visualstudio2022-workload-node --Force
-choco install visualstudio2022-workload-office --Force
-choco install visualstudio2022-workload-python --Force
-choco install visualstudio2022-workload-universal --Force
-choco install visualstudio2022-workload-visualstudioextension --Force
+choco install visualstudio2022community --norestart 
+choco install visualstudio2022-workload-azure --norestart 
+choco install visualstudio2022-workload-data --norestart 
+choco install visualstudio2022-workload-datascience --norestart 
+choco install visualstudio2022-workload-manageddesktop --norestart 
+choco install visualstudio2022-workload-managedgame --norestart 
+choco install visualstudio2022-workload-nativecrossplat --norestart 
+choco install visualstudio2022-workload-nativedesktop --norestart 
+choco install visualstudio2022-workload-nativegame --norestart 
+choco install visualstudio2022-workload-nativemobile --norestart 
+choco install visualstudio2022-workload-netcrossplat --norestart 
+choco install visualstudio2022-workload-netweb --norestart 
+choco install visualstudio2022-workload-node --norestart 
+choco install visualstudio2022-workload-office --norestart 
+choco install visualstudio2022-workload-python --norestart 
+choco install visualstudio2022-workload-universal --norestart 
+choco install visualstudio2022-workload-visualstudioextension --norestart 
 
 
 # GitHub
