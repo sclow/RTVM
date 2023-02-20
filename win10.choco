@@ -106,11 +106,6 @@ choco install sysinternals --params "/InstallDir:C:\tools\sysinternals" --Force
 choco install dotpeek --pre 
 ##choco install vscode
 
-# Dotnet build environments
-choco install netfx-4.5.2-devpack
-choco install netfx-4.6.2-devpack
-choco install netfx-4.7.2-devpack
-
 #choco install visualstudio2022community --package-parameters "--allWorkloads --includeRecommended --includeOptional --passive --locale en-US"
 choco install visualstudio2022community --norestart 
 choco install visualstudio2022-workload-azure --norestart 
@@ -130,6 +125,10 @@ choco install visualstudio2022-workload-python --norestart
 choco install visualstudio2022-workload-universal --norestart 
 choco install visualstudio2022-workload-visualstudioextension --norestart 
 
+# Dotnet build environments
+choco install netfx-4.5.2-devpack
+choco install netfx-4.6.2-devpack
+choco install netfx-4.7.2-devpack
 
 # GitHub
 Invoke-WebRequest -Uri https://github.com/dnSpy/dnSpy/releases/latest/download/dnSpy-netframework.zip -OutFile "$env:TEMP\dnSpy-netframework.zip"
