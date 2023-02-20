@@ -136,6 +136,7 @@ choco install visualstudio2022community --package-parameters "--allWorkloads --i
 
 # Dotnet build environments
 choco install netfx-4.0.1-devpack --ignore-checksums
+choco install netfx-4.5.1-devpack
 choco install netfx-4.5.2-devpack
 choco install netfx-4.6.1-devpack
 choco install netfx-4.6.2-devpack
