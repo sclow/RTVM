@@ -202,7 +202,7 @@ Install-Module GPRegistryPolicy -Force
 
 # Default extensions
 Install-ChocolateyFileAssociation ".sln" "$env:programfiles\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.exe"
-Install-ChocolateyFileAssociation ".dll" "$($Boxstarter.programFiles86)\jetbrains\dotpeek\v1.1\Bin\dotpeek32.exe"
+Install-ChocolateyFileAssociation ".dll" "$($Boxstarter.programFiles86)\jetbrains\installations\dotpeek231\dotpeek32.exe"
 
 
 #--- Restore Temporary Settings ---
