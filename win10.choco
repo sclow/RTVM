@@ -113,7 +113,8 @@ choco install dotpeek --pre --package-parameters "/PerMachine"
 ##choco install vscode
 
 # Choco office installer currently broken
-# choco install microsoft-office-deployment --package-parameters "/64"
+# choco install microsoft-office-deployment
+choco install microsoft-office-deployment --version=16.0.16026.20170 --package-parameters "/64"
 
 choco install visualstudio2022community --package-parameters "--allWorkloads --includeRecommended --includeOptional --passive --locale en-US"
 #choco install visualstudio2022community --norestart 
