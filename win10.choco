@@ -114,7 +114,7 @@ choco install dotpeek --pre --package-parameters "/PerMachine"
 
 # Choco office installer currently broken
 # choco install microsoft-office-deployment (using --pre for pre-release and a specific version)
-choco install microsoft-office-deployment --pre --version=16.0.16026.20170 --package-parameters "/64"
+choco install microsoft-office-deployment --pre --version=16.0.16026.20170 --param "'/64bit /Product O365ProPlusRetail'"
 
 choco install visualstudio2022community --package-parameters "--allWorkloads --includeRecommended --includeOptional --passive --locale en-US"
 #choco install visualstudio2022community --norestart 
