@@ -117,7 +117,7 @@ choco install vscode-rust-test-adapter
 # Office 2019
 #choco install office2019proplus
 #Office 2021
-choco install -y microsoft-office-deployment  --pre --version=16.0.16026.20170 --param "'/64bit /Product:ProPlus2021Volume,OneNote2021Volume'"
+choco install -y microsoft-office-deployment  --pre --version=16.0.16026.20170 --param "/Language:en-us /64bit /Product:ProPlus2021Volume,OneNote2021Volume"
 
 # Disable Macro Security for development
 'HKCU:\Software\Microsoft\Office\16.0\Excel\Security' | % { if (Test-Path $_) { Get-Item $_ } else { New-Item $_ -Force } } | Set-ItemProperty -Name 'VBAWarnings' -Value 1 | Out-Null
@@ -171,13 +171,13 @@ git clone https://github.com/antonioCoco/RoguePotato.git C:\tools\RoguePotato
 Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -ArgumentList 'restore -source "https://api.nuget.org/v3/index.json;https://www.myget.org/F/nuget"' -WorkingDirectory C:\tools\RoguePotato
 
 git clone https://github.com/decoder-it/juicy-potato.git C:\tools\juicy-potato
-Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -ArgumentList 'restore -source "https://api.nuget.org/v3/index.json;https://www.myget.org/F/nuget"' -WorkingDirectory C:\tools\juicy-potato
+Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -ArgumentList 'restore -source "https://api.nuget.org/v3/index.json;https://www.myget.org/F/nuget"' -WorkingDirectory C:\tools\juicy-potato\JuicyPotato
 
 git clone https://github.com/djhohnstein/SharpChrome.git C:\tools\SharpChrome
-#Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -ArgumentList 'restore -source "https://api.nuget.org/v3/index.json;https://www.myget.org/F/nuget"' -WorkingDirectory C:\tools\SharpChrome
+Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -ArgumentList 'restore -source "https://api.nuget.org/v3/index.json;https://www.myget.org/F/nuget"' -WorkingDirectory C:\tools\SharpChrome
 
 git clone https://github.com/FortyNorthSecurity/Egress-Assess.git C:\tools\Egress-Assess
-Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -ArgumentList 'restore -source "https://api.nuget.org/v3/index.json;https://www.myget.org/F/nuget"' -WorkingDirectory C:\tools\Egress-Assess
+#Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -ArgumentList 'restore -source "https://api.nuget.org/v3/index.json;https://www.myget.org/F/nuget"' -WorkingDirectory C:\tools\Egress-Assess
 
 git clone https://github.com/FSecureLABS/SharpGPOAbuse.git C:\tools\SharpGPOAbuse
 #Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -ArgumentList 'restore -source "https://api.nuget.org/v3/index.json;https://www.myget.org/F/nuget"' -WorkingDirectory C:\tools\SharpGPOAbuse
@@ -204,7 +204,7 @@ git clone https://github.com/GhostPack/SharpUp.git c:\tools\SharpUp
 Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -ArgumentList 'restore -source "https://api.nuget.org/v3/index.json;https://www.myget.org/F/nuget"' -WorkingDirectory C:\tools\SharpUp
 
 git clone https://github.com/HarmJ0y/DAMP.git C:\tools\DAMP
-Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -ArgumentList 'restore -source "https://api.nuget.org/v3/index.json;https://www.myget.org/F/nuget"' -WorkingDirectory C:\tools\DAMP
+#Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -ArgumentList 'restore -source "https://api.nuget.org/v3/index.json;https://www.myget.org/F/nuget"' -WorkingDirectory C:\tools\DAMP
 
 git clone https://github.com/hfiref0x/UACME.git C:\tools\UACME
 Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -ArgumentList 'restore -source "https://api.nuget.org/v3/index.json;https://www.myget.org/F/nuget"' -WorkingDirectory C:\tools\UACME\Source
