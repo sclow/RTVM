@@ -99,7 +99,7 @@ choco install nuget.commandline
 choco install 7zip 
 choco install git 
 ## choco install googlechrome --ignore-checksums
-choco install googlechrome --package-parameters "/norestart"
+choco install googlechrome --ignore-checksums --package-parameters "/norestart"
 choco install heidisql --version=10.2.0.559900 
 choco install openjdk11
 choco install putty 
