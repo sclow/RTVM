@@ -38,15 +38,7 @@ Enable-RemoteDesktop
 Disable-BingSearch
 Disable-GameBarTips
 # Disable weather widget
-$regkey = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Feeds"
-$name = "ShellFeedsTaskbarViewMode"
-#$exists = Get-ItemProperty $regkey $name -ErrorAction SilentlyContinue
-#if (($exists -eq $null) -or ($exists.Length -eq 0)) {
-#    Set-ItemProperty -Path $regkey -Name $name -Value 2 -Force | Out-Null
-#} else {
-#    New-ItemProperty -Path $regkey -Name $name -Value 2 -Force | Out-Null
-#}
-$regkey | % { if (Test-Path $_) { Get-Item $_ } else { New-Item $_ } } | Set-ItemProperty -Name $name -Value 2
+"HKCU:\Software\Microsoft\Windows\CurrentVersion\Feeds" | % { if (Test-Path $_) { Get-Item $_ } else { New-Item $_ -Force } } | Set-ItemProperty -Name ShellFeedsTaskbarViewMode -Value 2
 
 # Tidy up Windows UI
 Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager -Name SystemPaneSuggestionsEnabled -Type DWord -Value 0
@@ -125,9 +117,9 @@ choco install dotpeek --pre --package-parameters "/PerMachine"
 choco install -y microsoft-office-deployment  --pre --version=16.0.16026.20170 --param "'/Language:en-us /64bit /Product ProPlus2021Volume,OneNote2021Volume'"
 
 # Disable Macro Security for development
-'HKCU:\Software\Microsoft\Office\16.0\Excel\Security' | % { if (Test-Path $_) { Get-Item $_ } else { New-Item $_ } } | Set-ItemProperty -Name 'VBAWarnings' -Value 1
-'HKCU:\Software\Microsoft\Office\16.0\PowerPoint\Security' | % { if (Test-Path $_) { Get-Item $_ } else { New-Item $_ } } | Set-ItemProperty -Name 'VBAWarnings' -Value 1
-'HKCU:\Software\Microsoft\Office\16.0\Word\Security' | % { if (Test-Path $_) { Get-Item $_ } else { New-Item $_ } } | Set-ItemProperty -Name 'VBAWarnings' -Value 1
+'HKCU:\Software\Microsoft\Office\16.0\Excel\Security' | % { if (Test-Path $_) { Get-Item $_ } else { New-Item $_ -Force } } | Set-ItemProperty -Name 'VBAWarnings' -Value 1
+'HKCU:\Software\Microsoft\Office\16.0\PowerPoint\Security' | % { if (Test-Path $_) { Get-Item $_ } else { New-Item $_ -Force } } | Set-ItemProperty -Name 'VBAWarnings' -Value 1
+'HKCU:\Software\Microsoft\Office\16.0\Word\Security' | % { if (Test-Path $_) { Get-Item $_ } else { New-Item $_ -Force } } | Set-ItemProperty -Name 'VBAWarnings' -Value 1
 #New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Excel\Security -Name VBAWarnings -Value 1 -Force | Out-Null
 #New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\PowerPoint\Security -Name VBAWarnings -Value 1 -Force | Out-Null
 #New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Word\Security -Name VBAWarnings -Value 1 -Force | Out-Null
