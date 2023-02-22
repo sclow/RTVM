@@ -251,7 +251,16 @@ git clone https://github.com/zblurx/certsync.git c:\tools\certsync
 git clone https://github.com/cyberark/PipeViewer.git c:\tools\PipeViewer
 Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -ArgumentList 'restore -source "https://api.nuget.org/v3/index.json;https://www.myget.org/F/nuget"' -WorkingDirectory C:\tools\PipeViewer
 
-git clone https://github.com/Octoberfest7/MemFiles.git c:\tools\MemFiles
+# CobaltStrike Additions
+git clone https://github.com/Octoberfest7/MemFiles.git c:\tools\CobaltStrike\MemFiles
+git clone https://github.com/REDMED-X/OperatorsKit.git c:\tools\CobaltStrike\OperatorsKit
+git clone https://github.com/xforcered/CredBandit.git c:\tools\CobaltStrike\CredBandit
+git clone https://github.com/iilegacyyii/ThreadlessInject-BOF.git c:\tools\CobaltStrike\ThreadlessInject-BOF
+git clone https://github.com/xforcered/CredBandit.git c:\tools\CobaltStrike\CredBandit
+
+# Go Repo's
+git clone https://github.com/C-Sto/BananaPhone.git c:\tools\GO\BananaPhone
+git clone https://github.com/Ne0nd0g/go-clr.git c:\tools\GO\go-clr
 
 Install-ChocolateyShortcut -shortcutFilePath "C:\Users\Public\Desktop\tools.lnk" -targetPath C:\tools\
 
