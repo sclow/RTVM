@@ -40,12 +40,15 @@ Disable-GameBarTips
 # Disable weather widget
 $regkey = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Feeds"
 $name = "ShellFeedsTaskbarViewMode"
-$exists = Get-ItemProperty $regkey $name -ErrorAction SilentlyContinue
-if (($exists -eq $null) -or ($exists.Length -eq 0)) {
-    Set-ItemProperty -Path $regkey -Name $name -Value 2 -Force | Out-Null
-} else {
-    New-ItemProperty -Path $regkey -Name $name -Value 2 -Force | Out-Null
-}
+#$exists = Get-ItemProperty $regkey $name -ErrorAction SilentlyContinue
+#if (($exists -eq $null) -or ($exists.Length -eq 0)) {
+#    Set-ItemProperty -Path $regkey -Name $name -Value 2 -Force | Out-Null
+#} else {
+#    New-ItemProperty -Path $regkey -Name $name -Value 2 -Force | Out-Null
+#}
+$regkey | % { if (Test-Path $_) { Get-Item $_ } else { New-Item $_ } } | Set-ItemProperty -Name $name -Value 2
+
+# Tidy up Windows UI
 Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager -Name SystemPaneSuggestionsEnabled -Type DWord -Value 0
 If (!(Test-Path "HKCU:\SOFTWARE\Microsoft\Personalization\Settings")) {
     New-Item -Path "HKCU:\SOFTWARE\Microsoft\Personalization\Settings" -Force | Out-Null
