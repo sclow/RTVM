@@ -119,7 +119,7 @@ choco install dotpeek --pre --package-parameters "/PerMachine"
 # Office 2019
 #choco install office2019proplus
 #Office 2021
-choco install -y microsoft-office-deployment  --pre --version=16.0.16026.20170 --params="/Language:en-us /64bit /Product:ProPlus2021Volume,OneNote2021Volume"
+choco install -y microsoft-office-deployment  --pre --version=16.0.16026.20170 --param "'/Language:en-us /64bit /Product ProPlus2021Volume,OneNote2021Volume'"
 
 # Disable Macro Security for development
 New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Excel\Security -Name VBAWarnings -Value 1 -Force | Out-Null
