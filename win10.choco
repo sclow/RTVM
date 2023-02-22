@@ -122,9 +122,12 @@ choco install dotpeek --pre --package-parameters "/PerMachine"
 choco install -y microsoft-office-deployment  --pre --version=16.0.16026.20170 --param "'/Language:en-us /64bit /Product ProPlus2021Volume,OneNote2021Volume'"
 
 # Disable Macro Security for development
-New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Excel\Security -Name VBAWarnings -Value 1 -Force | Out-Null
-New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\PowerPoint\Security -Name VBAWarnings -Value 1 -Force | Out-Null
-New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Word\Security -Name VBAWarnings -Value 1 -Force | Out-Null
+'HKCU:\Software\Microsoft\Office\16.0\Excel\Security' | % { if (Test-Path $_) { Get-Item $_ } else { New-Item $_ } } | Set-ItemProperty -Name 'VBAWarnings' -Value 1
+'HKCU:\Software\Microsoft\Office\16.0\PowerPoint\Security' | % { if (Test-Path $_) { Get-Item $_ } else { New-Item $_ } } | Set-ItemProperty -Name 'VBAWarnings' -Value 1
+'HKCU:\Software\Microsoft\Office\16.0\Word\Security' | % { if (Test-Path $_) { Get-Item $_ } else { New-Item $_ } } | Set-ItemProperty -Name 'VBAWarnings' -Value 1
+#New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Excel\Security -Name VBAWarnings -Value 1 -Force | Out-Null
+#New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\PowerPoint\Security -Name VBAWarnings -Value 1 -Force | Out-Null
+#New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Word\Security -Name VBAWarnings -Value 1 -Force | Out-Null
 
 choco install visualstudio2022community --package-parameters "--allWorkloads --includeRecommended --includeOptional --passive --locale en-US"
 #choco install visualstudio2022community --norestart 
