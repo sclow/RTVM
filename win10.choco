@@ -42,9 +42,9 @@ $regkey = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Feeds"
 $name = "ShellFeedsTaskbarViewMode"
 $exists = Get-ItemProperty $regkey $name -ErrorAction SilentlyContinue
 if (($exists -eq $null) -or ($exists.Length -eq 0)) {
-    Set-ItemProperty -Path $regkey -Name $name -Value 2 -Force
+    Set-ItemProperty -Path $regkey -Name $name -Value 2 -Force | Out-Null
 } else {
-    New-ItemProperty -Path $regkey -Name $name -Value 2 -Force
+    New-ItemProperty -Path $regkey -Name $name -Value 2 -Force | Out-Null
 }
 Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager -Name SystemPaneSuggestionsEnabled -Type DWord -Value 0
 If (!(Test-Path "HKCU:\SOFTWARE\Microsoft\Personalization\Settings")) {
@@ -240,15 +240,19 @@ Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -Argu
 git clone https://github.com/bats3c/ADCSPwn c:\tools\ADCSPwn
 Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -ArgumentList 'restore -source "https://api.nuget.org/v3/index.json;https://www.myget.org/F/nuget"' -WorkingDirectory C:\tools\ADCSPwn
 
-
-
 Install-ChocolateyShortcut -shortcutFilePath "C:\Users\Public\Desktop\tools.lnk" -targetPath C:\tools\
+
+# Grab some helpful documents store in c:\tools\activations
+New-Item -ItemType Directory -Force -Path c:\tools\activations | Out-Null
+Invoke-WebRequest -Uri "https://learn.microsoft.com/en-us/deployoffice/vlactivation/rearm-an-office-installation-on-an-image-when-using-kms-to-activate" -OutFile c:\tools\activations\Office-VL.html" | Out-Null
+Invoke-WebRequest -Uri "https://github.com/navrozashvili/VSEELicense" -OutFile c:\tools\activations\VS-Enterprise.html" | Out-Null
+Invoke-WebRequest -Uri "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn502540(v=ws.11)" -OutFile c:\tools\activations\Windows.html" | Out-Null
 
 
 # IE first run
-New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Internet Explorer" -Force
-New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Internet Explorer\Main" -Force
-New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Internet Explorer\Main" -Name DisableFirstRunCustomize -Value 1 -Force
+New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Internet Explorer" -Force | Out-Null
+New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Internet Explorer\Main" -Force | Out-Null
+New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Internet Explorer\Main" -Name DisableFirstRunCustomize -Value 1 -Force | Out-Null
 
 # BloodHound
 Invoke-WebRequest -Uri 'https://github.com/BloodHoundAD/BloodHound/releases/latest/download/BloodHound-win32-x64.zip' -OutFile "$env:TEMP\BloodHound.zip"
