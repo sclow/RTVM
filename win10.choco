@@ -108,6 +108,7 @@ choco install dotpeek --pre --package-parameters "/PerMachine"
 choco install vscode -params "/NoDesktopIcon"
 choco install nim -pre
 choco install rust
+choco install vscode-rust-test-adapter
 
 # Choco office installer currently broken
 # choco install microsoft-office-deployment (using --pre for pre-release and a specific version)
