@@ -117,7 +117,7 @@ choco install vscode-rust-test-adapter
 # Office 2019
 #choco install office2019proplus
 #Office 2021
-choco install -y microsoft-office-deployment  --pre --version=16.0.16026.20170 --param "/Language:en-us /64bit /Product:ProPlus2021Volume,OneNote2021Volume"
+choco install -y microsoft-office-deployment  --pre --version=16.0.16026.20170 --package-parameters "/Language:en-us /64bit /Product:ProPlus2021Volume,OneNote2021Volume"
 
 # Disable Macro Security for development
 'HKCU:\Software\Microsoft\Office\16.0\Excel\Security' | % { if (Test-Path $_) { Get-Item $_ } else { New-Item $_ -Force } } | Set-ItemProperty -Name 'VBAWarnings' -Value 1 | Out-Null
