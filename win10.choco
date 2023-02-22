@@ -257,9 +257,9 @@ Install-ChocolateyShortcut -shortcutFilePath "C:\Users\Public\Desktop\tools.lnk"
 
 # Grab some helpful documents store in c:\tools\activations
 New-Item -ItemType Directory -Force -Path c:\tools\activations | Out-Null
-Invoke-WebRequest -Uri "https://learn.microsoft.com/en-us/deployoffice/vlactivation/rearm-an-office-installation-on-an-image-when-using-kms-to-activate" -OutFile c:\tools\activations\Office-VL.html" | Out-Null
-Invoke-WebRequest -Uri "https://github.com/navrozashvili/VSEELicense" -OutFile c:\tools\activations\VS-Enterprise.html" | Out-Null
-Invoke-WebRequest -Uri "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn502540(v=ws.11)" -OutFile c:\tools\activations\Windows.html" | Out-Null
+Invoke-WebRequest -Uri "https://learn.microsoft.com/en-us/deployoffice/vlactivation/rearm-an-office-installation-on-an-image-when-using-kms-to-activate" -OutFile "c:\tools\activations\Office-VL.html" | Out-Null
+Invoke-WebRequest -Uri "https://github.com/navrozashvili/VSEELicense" -OutFile "c:\tools\activations\VS-Enterprise.html" | Out-Null
+Invoke-WebRequest -Uri "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn502540(v=ws.11)" -OutFile "c:\tools\activations\Windows.html" | Out-Null
 
 
 # IE first run
