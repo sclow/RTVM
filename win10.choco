@@ -26,7 +26,7 @@ Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/sclow/RTVM/master/wall
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/sclow/RTVM/master/wallpaper2.jpg' -OutFile "C:\BGInfo\wallpaper2.jpg"
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/sclow/RTVM/master/wallpaper3.jpg' -OutFile "C:\BGInfo\wallpaper3.jpg"
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/sclow/RTVM/master/bginfo.bgi' -OutFile "C:\BGInfo\bginfo.bgi"
-New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\ -Name BGInfo -Value "C:\tools\sysinternals\Bginfo64.exe /accepteula /iC:\BGInfo\bginfo.bgi /timer:0" -Force
+New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\ -Name BGInfo -Value "C:\tools\sysinternals\Bginfo64.exe /accepteula /iC:\BGInfo\bginfo.bgi /timer:0" -Force | Out-Null
 
 # Misc
 $DesktopPath = [Environment]::GetFolderPath("Desktop")
@@ -38,36 +38,36 @@ Enable-RemoteDesktop
 Disable-BingSearch
 Disable-GameBarTips
 # Disable weather widget
-"HKCU:\Software\Microsoft\Windows\CurrentVersion\Feeds" | % { if (Test-Path $_) { Get-Item $_ } else { New-Item $_ -Force } } | Set-ItemProperty -Name ShellFeedsTaskbarViewMode -Value 2
+"HKCU:\Software\Microsoft\Windows\CurrentVersion\Feeds" | % { if (Test-Path $_) { Get-Item $_ } else { New-Item $_ -Force } } | Set-ItemProperty -Name ShellFeedsTaskbarViewMode -Value 2 | Out-Null
 
 # Tidy up Windows UI
-Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager -Name SystemPaneSuggestionsEnabled -Type DWord -Value 0
+Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager -Name SystemPaneSuggestionsEnabled -Type DWord -Value 0 | Out-Null
 If (!(Test-Path "HKCU:\SOFTWARE\Microsoft\Personalization\Settings")) {
     New-Item -Path "HKCU:\SOFTWARE\Microsoft\Personalization\Settings" -Force | Out-Null
 }
-Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Personalization\Settings" -Name "AcceptedPrivacyPolicy" -Type DWord -Value 0
+Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Personalization\Settings" -Name "AcceptedPrivacyPolicy" -Type DWord -Value 0 | Out-Null
 If (!(Test-Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization")) {
     New-Item -Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization" -Force | Out-Null
 }
-Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization" -Name "RestrictImplicitTextCollection" -Type DWord -Value 1
-Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization" -Name "RestrictImplicitInkCollection" -Type DWord -Value 1
+Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization" -Name "RestrictImplicitTextCollection" -Type DWord -Value 1 | Out-Null
+Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization" -Name "RestrictImplicitInkCollection" -Type DWord -Value 1 | Out-Null
 If (!(Test-Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore")) {
     New-Item -Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore" -Force | Out-Null
 }
-Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore" -Name "HarvestContacts" -Type DWord -Value 0
+Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore" -Name "HarvestContacts" -Type DWord -Value 0 | Out-Null
 If (!(Test-Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search")) {
     New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search" -Force | Out-Null
 }
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search" -Name "AllowCortana" -Type DWord -Value 0
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search" -Name "AllowCortana" -Type DWord -Value 0 | Out-Null
 
 
 # Start Menu: Disable Bing Search Results
-Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search -Name BingSearchEnabled -Type DWord -Value 0
+Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search -Name BingSearchEnabled -Type DWord -Value 0 | Out-Null
 # To Restore (Enabled):
 # Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search -Name BingSearchEnabled -Type DWord -Value 1
 
 # Change Explorer home screen back to "This PC"
-Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name LaunchTo -Type DWord -Value 1
+Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name LaunchTo -Type DWord -Value 1 | Out-Null
 # Change it back to "Quick Access" (Windows 10 default)
 # Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name LaunchTo -Type DWord -Value 2
 
@@ -89,7 +89,7 @@ Get-AppxPackage Microsoft.BingWeather | Remove-AppxPackage
 
 
 # Default All Printers to A4
-get-printer | %{ set-printconfiguration -printerobject $_ -Papersize "a4" }
+get-printer | %{ set-printconfiguration -printerobject $_ -Papersize "a4" } | Out-Null
 
 # Packages
 choco feature enable -n allowGlobalConfirmation
@@ -117,9 +117,9 @@ choco install dotpeek --pre --package-parameters "/PerMachine"
 choco install -y microsoft-office-deployment  --pre --version=16.0.16026.20170 --param "'/64bit /Product:ProPlus2021Volume,OneNote2021Volume'"
 
 # Disable Macro Security for development
-'HKCU:\Software\Microsoft\Office\16.0\Excel\Security' | % { if (Test-Path $_) { Get-Item $_ } else { New-Item $_ -Force } } | Set-ItemProperty -Name 'VBAWarnings' -Value 1
-'HKCU:\Software\Microsoft\Office\16.0\PowerPoint\Security' | % { if (Test-Path $_) { Get-Item $_ } else { New-Item $_ -Force } } | Set-ItemProperty -Name 'VBAWarnings' -Value 1
-'HKCU:\Software\Microsoft\Office\16.0\Word\Security' | % { if (Test-Path $_) { Get-Item $_ } else { New-Item $_ -Force } } | Set-ItemProperty -Name 'VBAWarnings' -Value 1
+'HKCU:\Software\Microsoft\Office\16.0\Excel\Security' | % { if (Test-Path $_) { Get-Item $_ } else { New-Item $_ -Force } } | Set-ItemProperty -Name 'VBAWarnings' -Value 1 | Out-Null
+'HKCU:\Software\Microsoft\Office\16.0\PowerPoint\Security' | % { if (Test-Path $_) { Get-Item $_ } else { New-Item $_ -Force } } | Set-ItemProperty -Name 'VBAWarnings' -Value 1 | Out-Null
+'HKCU:\Software\Microsoft\Office\16.0\Word\Security' | % { if (Test-Path $_) { Get-Item $_ } else { New-Item $_ -Force } } | Set-ItemProperty -Name 'VBAWarnings' -Value 1 | Out-Null
 #New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Excel\Security -Name VBAWarnings -Value 1 -Force | Out-Null
 #New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\PowerPoint\Security -Name VBAWarnings -Value 1 -Force | Out-Null
 #New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Word\Security -Name VBAWarnings -Value 1 -Force | Out-Null
