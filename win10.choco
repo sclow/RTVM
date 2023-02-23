@@ -27,6 +27,9 @@ Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/sclow/RTVM/master/wall
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/sclow/RTVM/master/wallpaper3.jpg' -OutFile "C:\BGInfo\wallpaper3.jpg"
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/sclow/RTVM/master/bginfo.bgi' -OutFile "C:\BGInfo\bginfo.bgi"
 New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\ -Name BGInfo -Value "C:\tools\sysinternals\Bginfo64.exe /accepteula /iC:\BGInfo\bginfo.bgi /timer:0" -Force | Out-Null
+New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\ -Name "Delete Teams" -Value "%comspec% /c del /f /q '%userporfile%\Desktop\Microsoft Teams.lnk" -Force | Out-Null
+New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\ -Name "Kill Weather" -Value "%comspec% reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Feeds /v ShellFeedsTaskbarViewMode /t REG_DWRD /d 2 /f'" -Force | Out-Null
+
 
 # Misc
 $DesktopPath = [Environment]::GetFolderPath("Desktop")
@@ -126,10 +129,6 @@ choco install -y microsoft-office-deployment  --pre --version=16.0.16026.20170 -
 #New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Excel\Security -Name VBAWarnings -Value 1 -Force | Out-Null
 #New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\PowerPoint\Security -Name VBAWarnings -Value 1 -Force | Out-Null
 #New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Word\Security -Name VBAWarnings -Value 1 -Force | Out-Null
-# Remove Teams desktop icon
-$UserProfile = [Environment]::GetEnvironmentVariable("userprofile")
-$TeamsIcon = Join-Path -Path $Desktop -ChildPath "Desktop\Microsoft Teams.lnk"
-Remove-Item -Path $TeamsIcon - Force
 
 choco install visualstudio2022community --package-parameters "--allWorkloads --includeRecommended --includeOptional --passive --locale En-us"
 #choco install visualstudio2022community --norestart 
