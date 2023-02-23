@@ -126,6 +126,8 @@ choco install -y microsoft-office-deployment  --pre --version=16.0.16026.20170 -
 #New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Excel\Security -Name VBAWarnings -Value 1 -Force | Out-Null
 #New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\PowerPoint\Security -Name VBAWarnings -Value 1 -Force | Out-Null
 #New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Word\Security -Name VBAWarnings -Value 1 -Force | Out-Null
+# Remove Teams desktop icon
+Remove-Item -Path "$DesktopPath\Microsoft Teams.lnk" - Force
 
 choco install visualstudio2022community --package-parameters "--allWorkloads --includeRecommended --includeOptional --passive --locale En-us"
 #choco install visualstudio2022community --norestart 
