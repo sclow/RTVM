@@ -336,7 +336,7 @@ Install-Module GPRegistryPolicy -Force
 Install-ChocolateyFileAssociation ".dll" "$($Boxstarter.programFiles86)\jetbrains\installations\dotpeek231\dotpeek32.exe"
 
 # Install Teamcity CI/CD
-choco install teamcity-preinstalledjre --params "'/RunAsSystem'"
+choco install teamcity-preinstalledjre --package-parameters "/RunAsSystem"
 
 #--- Restore Temporary Settings ---
 Enable-UAC
