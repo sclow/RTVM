@@ -132,7 +132,7 @@ choco install -y microsoft-office-deployment  --pre --version=16.0.16026.20170 -
 choco install visualstudio2019community
 choco install visualstudio2019-workload-manageddesktop
 
-choco install visualstudio2022community --package-parameters "--allWorkloads --includeRecommended --includeOptional --passive --locale En-us"
+choco install visualstudio2022community --package-parameters "--allWorkloads --includeRecommended --includeOptional --passive"
 #choco install visualstudio2022community --norestart 
 #choco install visualstudio2022-workload-azure --norestart --force
 #choco install visualstudio2022-workload-data --norestart --force
