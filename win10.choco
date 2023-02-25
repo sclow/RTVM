@@ -338,6 +338,7 @@ Install-ChocolateyFileAssociation ".dll" "$($Boxstarter.programFiles86)\jetbrain
 
 # Install Teamcity CI/CD
 choco install teamcity-preinstalledjre 
+Start-Service -DisplayName "TeamCity Server"
 
 #--- Restore Temporary Settings ---
 Enable-UAC
