@@ -343,5 +343,5 @@ Start-Service -DisplayName "TeamCity Server"
 #--- Restore Temporary Settings ---
 Enable-UAC
 Enable-MicrosoftUpdate
-#Install-WindowsUpdate -acceptEula
-Get-WindowsUpdate -AcceptAll -Install -AutoReboot
+Install-WindowsUpdate -acceptEula
+#Get-WindowsUpdate -AcceptAll -Install -AutoReboot
