@@ -342,8 +342,7 @@ choco install teamcity-preinstalledjre
 git clone https://github.com/sclow/TeamCityDataDir.git C:\TeamCity\DataDir
 New-Item -Path Env:\TEAMCITY_DATA_PATH -Value C:\TeamCity\DataDir
 Start-Process -NoNewWindow "cmd.exe" -ArgumentList '/c start c:\TeamCity\bin\runAll.bat start' -WorkingDirectory C:\TeamCity\bin
-
-#Start-Service -DisplayName "TeamCity Server"
+New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\ -Name "Team City" -Value "%comspec% /c start c:\TeamCity\bin\runAll.bat start" -Force | Out-Null
 
 #--- Restore Temporary Settings ---
 Enable-UAC
