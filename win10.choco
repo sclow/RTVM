@@ -340,6 +340,8 @@ Install-ChocolateyFileAssociation ".dll" "$($Boxstarter.programFiles86)\jetbrain
 # Install Teamcity CI/CD
 choco install teamcity-preinstalledjre 
 git clone https://github.com/sclow/TeamCityDataDir.git C:\TeamCity\DataDir
+New-Item -Path Env:\TEAMCITY_DATA_PATH -Value C:\TeamCity\DataDir
+
 #Start-Service -DisplayName "TeamCity Server"
 
 #--- Restore Temporary Settings ---
