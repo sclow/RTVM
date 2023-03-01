@@ -362,10 +362,12 @@ choco install yara
 
 # Misc
 $DesktopPath = [Environment]::GetFolderPath("Desktop")
-Remove-Item -Path "C:\Users\Public\Desktop\Boxstarter Shell.lnk"
+#Remove-Item -Path "C:\Users\Public\Desktop\Boxstarter Shell.lnk"
+Get-ChildItem C:\Users\ -Include "Boxstarter Shell.lnk" -Recurse | Remove-Item
 Remove-Item -Path "C:\Users\Public\Desktop\Microsoft Edge.lnk"
+Get-ChildItem C:\Users\ -Include "Microsoft Edge.lnk" -Recurse | Remove-Item
 Remove-Item -Path "C:\Users\Public\Desktop\Google Chrome.lnk"
-
+Get-ChildItem C:\Users\ -Include "Google Chrome.lnk" -Recurse | Remove-Item
 
 #--- Restore Temporary Settings ---
 #Install-WindowsUpdate -acceptEula
