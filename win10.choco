@@ -104,6 +104,8 @@ choco install 7zip
 choco install git 
 ## choco install googlechrome --ignore-checksums
 choco install googlechrome --ignore-checksums --package-parameters "/norestart"
+Remove-Item -Path "C:\Users\Public\Desktop\Google Chrome.lnk"
+
 choco install heidisql --version=10.2.0.559900 
 choco install openjdk11
 choco install putty 
