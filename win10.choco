@@ -32,11 +32,6 @@ New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\ -Nam
 New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\ -Name "Kill Weather" -Value "%comspec% reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Feeds /v ShellFeedsTaskbarViewMode /t REG_DWRD /d 2 /f'" -Force | Out-Null
 
 
-# Misc
-$DesktopPath = [Environment]::GetFolderPath("Desktop")
-Remove-Item -Path "C:\Users\Public\Desktop\Boxstarter Shell.lnk"
-Remove-Item -Path C:\Temp\ -Recurse -Force
-
 # Windows config
 Enable-RemoteDesktop
 Disable-BingSearch
@@ -357,6 +352,13 @@ $favorite.Save()
 
 # Install Yara
 choco install yara
+
+# Misc
+$DesktopPath = [Environment]::GetFolderPath("Desktop")
+Remove-Item -Path "C:\Users\Public\Desktop\Boxstarter Shell.lnk"
+Remove-Item -Path "C:\Users\Public\Desktop\Microsoft Edge.lnk"
+Remove-Item -Path "C:\Users\Public\Desktop\Google Chrome.lnk"
+Remove-Item -Path C:\Temp\ -Recurse -Force
 
 #--- Restore Temporary Settings ---
 Install-WindowsUpdate -acceptEula
