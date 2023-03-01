@@ -350,6 +350,11 @@ $favorite = $Shell.CreateShortcut("C:\Users\Public\Desktop\TeamCity.url")
 $favorite.TargetPath = "http://localhost:8111"
 $favorite.Save()
 
+# Create network Share
+New-Item -Path C:\Clean_Tools\ -ItemType Directory
+New-SmbShare -Name "Clean_Tools" -Path "C:\Clean_Tools\" -FullAccess 'ANONYMOUS LOGON','Everyone'
+
+
 # Install Yara
 choco install yara
 
