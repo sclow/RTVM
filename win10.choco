@@ -239,7 +239,7 @@ Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -Argu
 git clone https://github.com/rasta-mouse/ThreatCheck.git c:\tools\ThreatCheck
 Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -ArgumentList 'restore -source "https://api.nuget.org/v3/index.json;https://www.myget.org/F/nuget"' -WorkingDirectory C:\tools\ThreatCheck\ThreatCheck
 Start-Process -NoNewWindow "cmd.exe" -ArgumentList '/c start dotnet build --configuration Release' -WorkingDirectory C:\tools\ThreatCheck\ThreatCheck
-
+Move-Item -Path C:\tools\ThreatCheck\ThreatCheck\ThreatCheck\bin\Release\ThreatCheck.exe -Destination C:\ProgramData\chocolatey\bin\
 
 git clone https://github.com/tevora-threat/SharpView.git C:\tools\SharpView
 Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -ArgumentList 'restore -source "https://api.nuget.org/v3/index.json;https://www.myget.org/F/nuget"' -WorkingDirectory C:\tools\SharpView
