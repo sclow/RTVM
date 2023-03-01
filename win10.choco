@@ -352,6 +352,9 @@ $favorite = $Shell.CreateShortcut("C:\Users\Public\Desktop\TeamCity.url")
 $favorite.TargetPath = "http://localhost:8111"
 $favorite.Save()
 
+# Install Yara
+choco install yara
+
 #--- Restore Temporary Settings ---
 Enable-UAC
 Enable-MicrosoftUpdate
