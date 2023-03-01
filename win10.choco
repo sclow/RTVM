@@ -236,7 +236,7 @@ git clone https://github.com/rasta-mouse/Watson.git C:\tools\Watson
 Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -ArgumentList 'restore -source "https://api.nuget.org/v3/index.json;https://www.myget.org/F/nuget"' -WorkingDirectory C:\tools\Watson
 
 git clone https://github.com/rasta-mouse/ThreatCheck.git c:\tools\ThreatCheck
-Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -ArgumentList 'restore -source "https://api.nuget.org/v3/index.json;https://www.myget.org/F/nuget"' -WorkingDirectory C:\tools\ThreatCheck
+Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -ArgumentList 'restore -source "https://api.nuget.org/v3/index.json;https://www.myget.org/F/nuget"' -WorkingDirectory C:\tools\ThreatCheck\ThreatCheck
 
 git clone https://github.com/tevora-threat/SharpView.git C:\tools\SharpView
 Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -ArgumentList 'restore -source "https://api.nuget.org/v3/index.json;https://www.myget.org/F/nuget"' -WorkingDirectory C:\tools\SharpView
