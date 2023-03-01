@@ -365,6 +365,7 @@ choco install yara
 
 # Copy ThreatCheck into Chocolately bin folder
 Copy-Item -Path C:\tools\ThreatCheck\ThreatCheck\ThreatCheck\bin\Release\ThreatCheck.exe -Destination C:\ProgramData\chocolatey\bin\
+Copy-Item -Path C:\tools\ThreatCheck\ThreatCheck\ThreatCheck\bin\Release\CommandLine.dll -Destination C:\ProgramData\chocolatey\bin\
 
 # Misc
 $DesktopPath = [Environment]::GetFolderPath("Desktop")
