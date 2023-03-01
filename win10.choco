@@ -369,7 +369,7 @@ Remove-Item -Path "C:\Users\Public\Desktop\Google Chrome.lnk"
 
 #--- Restore Temporary Settings ---
 #Install-WindowsUpdate -acceptEula
-Install-WindowsUpdate
+Install-WindowsUpdate -AcceptAll
 Enable-UAC
 Enable-MicrosoftUpdate
 
