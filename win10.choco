@@ -345,6 +345,11 @@ setx /m TEAMCITY_DATA_PATH "$Env:TEAMCITY_DATA_PATH"
 Start-Process -NoNewWindow "cmd.exe" -ArgumentList '/c start c:\TeamCity\bin\runAll.bat start' -WorkingDirectory C:\TeamCity\bin
 New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\ -Name "Team City" -Value "%comspec% /c start c:\TeamCity\bin\runAll.bat start" -Force | Out-Null
 
+$Shell = New-Object -Com-Object ("Wscript.Shell")
+$favorite = $Shell.CreateShortcut("C:\Users\Public\Desktop\TeamCity.url")
+$favorite.TargetPath = "http://localhost:8111"
+$favorite.Save()
+
 #--- Restore Temporary Settings ---
 Enable-UAC
 Enable-MicrosoftUpdate
