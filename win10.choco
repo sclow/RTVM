@@ -1,6 +1,7 @@
 New-Item -Path C:\ -Name Temp -ItemType Directory -ErrorAction SilentlyContinue
 New-Item -Path C:\ -Name payloads -ItemType Directory -ErrorAction SilentlyContinue
 
+Remove-Item -Path C:\Temp\ -Recurse -Force
 $env:TEMP = "C:\Temp"
 $env:TMP = "C:\Temp"
 
@@ -364,10 +365,11 @@ $DesktopPath = [Environment]::GetFolderPath("Desktop")
 Remove-Item -Path "C:\Users\Public\Desktop\Boxstarter Shell.lnk"
 Remove-Item -Path "C:\Users\Public\Desktop\Microsoft Edge.lnk"
 Remove-Item -Path "C:\Users\Public\Desktop\Google Chrome.lnk"
-Remove-Item -Path C:\Temp\ -Recurse -Force
+
 
 #--- Restore Temporary Settings ---
-Install-WindowsUpdate -acceptEula
+#Install-WindowsUpdate -acceptEula
+Install-WindowsUpdate
 Enable-UAC
 Enable-MicrosoftUpdate
 
