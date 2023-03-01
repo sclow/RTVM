@@ -129,10 +129,6 @@ choco install -y microsoft-office-deployment  --pre --version=16.0.16026.20170 -
 'HKCU:\Software\Microsoft\Office\16.0\PowerPoint\Security' | % { if (Test-Path -Path $_) { Get-Item -Path $_ } else { New-Item -Path $_ -Force } } | Set-ItemProperty -Name 'VBAWarnings' -Value 1 | Out-Null
 'HKCU:\Software\Microsoft\Office\16.0\Word\Security' | % { if (Test-Path -Path $_) { Get-Item -Path $_ } else { New-Item -Path $_ -Force } } | Set-ItemProperty -Name 'VBAWarnings' -Value 1 | Out-Null
 
-# Visual Studio 2019 for .NET Framework 4 and 4.5 targeting packs.
-choco install visualstudio2019community
-choco install visualstudio2019-workload-manageddesktop
-
 choco install visualstudio2022community --package-parameters "--allWorkloads --includeRecommended --includeOptional --passive"
 #choco install visualstudio2022community --norestart 
 #choco install visualstudio2022-workload-azure --norestart --force
@@ -151,6 +147,10 @@ choco install visualstudio2022community --package-parameters "--allWorkloads --i
 #choco install visualstudio2022-workload-python --norestart --force
 #choco install visualstudio2022-workload-universal --norestart --force
 #choco install visualstudio2022-workload-visualstudioextension --norestart --force
+
+# Visual Studio 2019 for .NET Framework 4 and 4.5 targeting packs.
+choco install visualstudio2019community
+choco install visualstudio2019-workload-manageddesktop
 
 # Dotnet build environments
 #choco install netfx-4.0.1-devpack --ignore-checksums
