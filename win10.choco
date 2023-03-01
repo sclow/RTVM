@@ -109,6 +109,7 @@ choco install putty
 choco install sysinternals --params "/InstallDir:C:\tools\sysinternals"
 choco install dotpeek --pre --package-parameters "/PerMachine"
 choco install vscode -params "/NoDesktopIcon"
+choco install vscode-powershell
 choco install nim -pre
 choco install rust
 choco install vscode-rust-test-adapter
