@@ -30,7 +30,8 @@ Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/sclow/RTVM/master/bgin
 New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\ -Name BGInfo -Value "C:\tools\sysinternals\Bginfo64.exe /accepteula /iC:\BGInfo\bginfo.bgi /timer:0" -Force | Out-Null
 New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\ -Name "Delete Teams" -Value "%comspec% /c del /f /q '%userporfile%\Desktop\Microsoft Teams.lnk" -Force | Out-Null
 New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\ -Name "Kill Weather" -Value "%comspec% reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Feeds /v ShellFeedsTaskbarViewMode /t REG_DWRD /d 2 /f'" -Force | Out-Null
-
+New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\ -Name "Delete Chrome Link" -Value "%comspec% /c del /f /q '%userporfile%\Desktop\Google Chrome.lnk" -Force | Out-Null
+New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\ -Name "Delete Edge Link" -Value "%comspec% /c del /f /q '%userporfile%\Desktop\Microsoft Edge.lnk" -Force | Out-Null
 
 # Windows config
 Enable-RemoteDesktop
