@@ -369,7 +369,7 @@ Copy-Item -Path C:\tools\ThreatCheck\ThreatCheck\ThreatCheck\bin\Release\Command
 
 # Misc
 $DesktopPath = [Environment]::GetFolderPath("Desktop")
-#Remove-Item -Path "C:\Users\Public\Desktop\Boxstarter Shell.lnk"
+Remove-Item -Path "C:\Users\Public\Desktop\Boxstarter Shell.lnk"
 Get-ChildItem C:\Users\ -Include "Boxstarter Shell.lnk" -Recurse | Remove-Item
 Remove-Item -Path "C:\Users\Public\Desktop\Microsoft Edge.lnk"
 Get-ChildItem C:\Users\ -Include "Microsoft Edge.lnk" -Recurse | Remove-Item
