@@ -326,7 +326,7 @@ Enable-WindowsOptionalFeature -FeatureName NetFx3 -Online
 Install-Module GPRegistryPolicy -Force
 
 # Networking
-if ( (Get-NetAdapter | measure).Count > 1 ) {
+if ( (Get-NetAdapter | measure).Count -gt 1 ) {
     ## VMware
     #netsh interface ip set address "Ethernet1" static 192.168.152.101 255.255.255.0 192.168.152.100
 
