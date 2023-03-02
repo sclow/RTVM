@@ -377,8 +377,8 @@ Remove-Item -Path "C:\Users\Public\Desktop\Google Chrome.lnk"
 Get-ChildItem C:\Users\ -Include "Google Chrome.lnk" -Recurse | Remove-Item
 
 #--- Restore Temporary Settings ---
-#Install-WindowsUpdate -acceptEula
-Install-WindowsUpdate -Confirm
+Install-WindowsUpdate -acceptEula
+#Install-WindowsUpdate -Confirm
 #help Install-WindowsUpdate
 Enable-UAC
 Enable-MicrosoftUpdate
