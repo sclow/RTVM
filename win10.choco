@@ -326,16 +326,22 @@ Enable-WindowsOptionalFeature -FeatureName NetFx3 -Online
 Install-Module GPRegistryPolicy -Force
 
 # Networking
-## VMware
-#netsh interface ip set address "Ethernet1" static 192.168.152.101 255.255.255.0 192.168.152.100
+if ( (Get-NetAdapter | measure).Count > 1 ) {
+    ## VMware
+    #netsh interface ip set address "Ethernet1" static 192.168.152.101 255.255.255.0 192.168.152.100
 
-## VBox
-#netsh interface ip set address "Ethernet 2" static 192.168.152.101 255.255.255.0 192.168.152.100
+    ## VBox
+    #netsh interface ip set address "Ethernet 2" static 192.168.152.101 255.255.255.0 192.168.152.100
 
-#route add -p 10.8.0.0 mask 255.255.255.0 192.168.152.100
-#route add -p 10.9.0.0 mask 255.255.255.0 192.168.152.100
-#route add -p 10.10.110.0 mask 255.255.255.0 192.168.152.100
-#Add-Content C:\Windows\System32\drivers\etc\hosts "192.168.152.100 kali"
+    $interface_name = (Get-NetAdapter -InterfaceIndex (Get-NetAdapter).ifindex | Select-Object -first 1).Name
+    netsh interface ip set address $interface_name static 172.16.254.101 255.255.255.0 172.16.254.100
+
+    #route add -p 10.8.0.0 mask 255.255.255.0 192.168.152.100
+    #route add -p 10.9.0.0 mask 255.255.255.0 192.168.152.100
+    #route add -p 10.10.110.0 mask 255.255.255.0 192.168.152.100
+
+    Add-Content C:\Windows\System32\drivers\etc\hosts "172.16.254.100 gitlab gitlab.local"
+}
 
 # Default extensions
 # Use the UI to choose what associate once loaded
