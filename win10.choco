@@ -265,6 +265,10 @@ Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -Argu
 
 git clone https://github.com/Raikia/CredNinja.git c:\tools\CredNinja
 
+git clone https://github.com/werdhaihai/AtlasReaper.git C:\tools\AtlasReaper
+Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -ArgumentList 'restore -source "https://api.nuget.org/v3/index.json;https://www.myget.org/F/nuget"' -WorkingDirectory C:\tools\AtlasReaper
+
+
 # CobaltStrike Additions
 git clone https://github.com/Octoberfest7/MemFiles.git c:\tools\CobaltStrike\MemFiles
 git clone https://github.com/REDMED-X/OperatorsKit.git c:\tools\CobaltStrike\OperatorsKit
