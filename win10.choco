@@ -131,6 +131,9 @@ choco install rust
 choco install vscode-rust-test-adapter
 choco install confuserex.portable
 
+# Install Yara
+choco install yara
+
 # Choco office installer currently broken
 # choco install microsoft-office-deployment (using --pre for pre-release and a specific version)
 # Office 2016
@@ -387,10 +390,6 @@ $favorite.Save()
 New-Item -Path C:\Clean_Tools\ -ItemType Directory
 New-SmbShare -Name "Clean_Tools" -Path "C:\Clean_Tools\" -FullAccess 'ANONYMOUS LOGON','Everyone'
 
-
-# Install Yara
-choco install yara
-
 # Copy ThreatCheck into Chocolately bin folder
 Copy-Item -Path C:\tools\ThreatCheck\ThreatCheck\ThreatCheck\bin\Release\ThreatCheck.exe -Destination C:\ProgramData\chocolatey\bin\
 Copy-Item -Path C:\tools\ThreatCheck\ThreatCheck\ThreatCheck\bin\Release\CommandLine.dll -Destination C:\ProgramData\chocolatey\bin\
@@ -411,4 +410,4 @@ Install-WindowsUpdate -acceptEula
 Enable-UAC
 Enable-MicrosoftUpdate
 
-#Get-WindowsUpdate -AcceptAll -Install -AutoReboot
+Get-WindowsUpdate -AcceptAll -Install -AutoReboot
