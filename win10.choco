@@ -307,7 +307,7 @@ git clone https://github.com/Ne0nd0g/go-clr.git c:\tools\GO\go-clr
 git clone https://github.com/mkaring/ConfuserEx.git c:\tools\obfuscation\ConfuserEx
 #Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -ArgumentList 'restore -source "https://api.nuget.org/v3/index.json;https://www.myget.org/F/nuget"' -WorkingDirectory C:\tools\obfuscation\ConfuserEx
 
-git clone https://github.com/XenocodeRCE/neo-ConfuserEx.git c:\tools\obfuscation\neo-ConfuserEx
+git clone  --recurse-submodules --remote-submodules  https://github.com/XenocodeRCE/neo-ConfuserEx.git c:\tools\obfuscation\neo-ConfuserEx
 Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -ArgumentList 'restore -source "https://api.nuget.org/v3/index.json;https://www.myget.org/F/nuget" Confuser2.sln' -WorkingDirectory C:\tools\obfuscation\neo-ConfuserEx 
 Start-Process -Wait -NoNewWindow "c:\programdata\chocolatey\bin\nuget.exe" -ArgumentList 'restore -source "https://api.nuget.org/v3/index.json;https://www.myget.org/F/nuget" Confuser2.mono.sln' -WorkingDirectory C:\tools\obfuscation\neo-ConfuserEx 
 
