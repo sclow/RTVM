@@ -366,7 +366,7 @@ if ( (Get-NetAdapter | measure).Count -gt 1 ) {
 # Default extensions
 # Use the UI to choose what associate once loaded
 #Install-ChocolateyFileAssociation ".sln" "$env:programfiles\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.exe"
-Install-ChocolateyFileAssociation ".dll" "$($Boxstarter.programFiles86)\jetbrains\installations\dotpeek231\dotpeek32.exe"
+Install-ChocolateyFileAssociation ".dll" "$($Boxstarter.programFiles86)\jetbrains\installations\dotpeek241\dotpeek32.exe"
 
 # Install Teamcity CI/CD
 choco install teamcity-preinstalledjre 
