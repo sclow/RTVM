@@ -170,6 +170,8 @@ choco install visualstudio2019community
 choco install visualstudio2019-workload-manageddesktop
 
 # Dotnet build environments
+#choco install dotnetcore-sdk
+choco install dotnet-sdk
 #choco install netfx-4.0.1-devpack --ignore-checksums
 #choco install netfx-4.5.1-devpack
 choco install netfx-4.5.2-devpack
